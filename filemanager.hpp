@@ -9,9 +9,23 @@ Header file for FileManager class
 #ifndef FILEMANAGER_HPP
 #define FILEMANAGER_HPP
 
-class 
+#include <iostream>
+#include <fstream>
 
-
+class FileManager
+{
+    private:
+        double* items;
+        std::string fileIn;
+        std::ifstream inFile;
+        int numOfItems;
+    public:
+        FileManager(std::string fileIn);
+        void getItems();
+        double getItem(int index);
+        int getNumOfItems();
+        void setNumOfItems(int numOfItems);
+};
 
 #endif /*FILEMANAGER_HPP*/
 
