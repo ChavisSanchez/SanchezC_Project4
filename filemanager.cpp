@@ -9,21 +9,21 @@ Class file for FileManager class
 
 #include "filemanager.hpp"
 
-FileManager::FileManager(std::string fileIn)
+FileManager::FileManager()
 {
-    this->fileIn = fileIn;
-    this->numOfItems = 0; 
+    this->numOfItems = 0;
     getItems();
 }
 
 FileManager::~FileManager()
 {
+    delete[] items;
     delete(items);
 }
 
 void FileManager::getItems()
 {
-    inFile.open(this->fileIn);
+    inFile.open("items.txt");
     double item = 0;
     inFile >> numOfItems;
     

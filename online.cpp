@@ -1,30 +1,24 @@
 /******************************************
 Chavis Sanchez
-offline.cpp
+online.hpp
 Project 4
 
-Class file for Offline class
+Class file for online class
 ******************************************/
 
-#include "offline.hpp"
+#include "online.hpp"
 
-Offline::Offline(std::string fileName)
+Online::Online(std::string fileName)
 {
-    this->length = fM.getNumOfItems();
+    this->length = fM2.getNumOfItems();
 
     for(int i = 0; i < length; i++)
     {
-        items[i] = fM.getItem(i);
+        items[i] = fM2.getItem(i);
     }
-
-    sort(items, length);
 }
 
-Offline::~Offline()
-{
-}
-
-int Offline::FirstFit()
+int Online::FirstFit()
 {
     int numOfBins = 0;
     std::vector<double> f{0.0};
@@ -34,7 +28,6 @@ int Offline::FirstFit()
         int j;
         for(j = 0; j < binsFirst.size(); j++)
         {
-            std::cout << getBinWeight(binsFirst[j]) + items[i];
             if(getBinWeight(binsFirst[j]) + items[i] <= 1)
             {
                 binsFirst[j].push_back(items[i]);
@@ -47,20 +40,24 @@ int Offline::FirstFit()
             binsFirst.push_back(f);
             binsFirst[j].push_back(items[i]);
             numOfBins++;
-
         }
     }
+
     return binsFirst.size();
 }
-    
 
-int Offline::BestFit()
+int Online::NextFit()
+{
+    return 1;
+}
+
+int Online::BestFit()
 {
     int numOfBins = 0;
     double maxWeight = 1;
 
     std::vector<double> f {0.0};
-
+    
     for(int i = 0; i < length; i++)
     {
         binsBest.push_back(f);
@@ -98,41 +95,22 @@ int Offline::BestFit()
             binsBest.pop_back();
         }
     }
-
+    
     return binsBest.size();
 }
 
-void Offline::sort(double arr[], int length)
-{
-    int key;
-    for(int i = 0; i < length - 1; i++)
-    {
-        key = i;
-        for(int j = i + 1; j < length; j++)
-        if(arr[j] < arr[key])
-            key = j;
-        if(key != i)
-        {
-            double temp = arr[key];
-            arr[key] = arr[i];
-            arr[i] = temp;
-            
-        }
-    }
-}
-
-double Offline::getBinWeight(std::vector<double> bin)
+double Online::getBinWeight(std::vector<double> bin)
 {
     double weight = 0.0;
     for(int i = 0; i < bin.size(); i++)
     {
         weight += bin[i];
     }
+
     return weight;
 }
 
-
-void Offline::displayFirstFit()
+void Online::displayFirstFit()
 {
     for(int i = 0; i < binsFirst.size(); i++)
     {
@@ -152,14 +130,34 @@ void Offline::displayFirstFit()
     }
 }
 
-void Offline::displayBestFit()
+void Online::displayNextFit()
+{
+    for(int i = 0; i < binsNext.size(); i++)
+    {
+        std::cout << "bin " << i << ": ";
+        for(int j = 0; j < binsNext[i].size(); j++)
+        {
+            if(binsNext[i][j] == 0)
+            {
+
+            }
+            else
+            {
+                std::cout << binsNext[i][j] << ", ";
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Online::displayBestFit()
 {
     for(int i = 0; i < binsBest.size(); i++)
     {
         std::cout << "bin " << i << ": ";
         for(int j = 0; j < binsBest[i].size(); j++)
         {
-            if(binsBest[i][j] == 0 || binsBest[i][j] >= 1)
+            if(binsBest[i][j] == 0)
             {
 
             }

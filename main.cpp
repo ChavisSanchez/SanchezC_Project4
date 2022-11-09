@@ -3,37 +3,26 @@ Chavis Sanchez
 main.cpp
 Project 4
 
-Main File for project 4
+Main file 
 ******************************************/
 
-#include <vector>
-#include <iostream>
 #include "filemanager.hpp"
 #include "offline.hpp"
-
+#include "online.hpp"
+#include "optimal.hpp"
 
 int main()
 {
-    //FileManager* fm = new FileManager("items.txt");
+    Online* oN = new Online("items.txt");
 
-    /*
-    for(int i = 0; i < fm->getNumOfItems(); i++)
-    {
-        std::cout << fm->getItem(i) << std::endl;
-    }
-    */
+    oN->FirstFit();
+
+    oN->displayFirstFit();
+
     Offline* oF = new Offline("items.txt");
 
-    std::cout << oF->FirstFit() << std::endl;
-    
-    std::cout << oF->BestFit() << std::endl;
+    oF->FirstFit();
 
-//    oF->displayFirstFit();
-    
-  //  std::cout << oF->BestFit() << std::endl;
-
-//    oF->displayBestFit();
-
+    oF->displayFirstFit();
     return 0;
 }
-

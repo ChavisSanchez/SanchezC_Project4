@@ -18,12 +18,15 @@ class Offline
     private:
         std::vector<std::vector<double>> binsFirst;
         std::vector<std::vector<double>> binsBest;
-        FileManager* fM;
+        FileManager fM;
+        int length;
+        double items[12];
+
     public:
         Offline(std::string fileName);
+        ~Offline();
         int FirstFit();
         int BestFit();
-        bool overFill(double d);
         void sort(double arr[], int length);
         double getBinWeight(std::vector<double> bin);
         void displayFirstFit();

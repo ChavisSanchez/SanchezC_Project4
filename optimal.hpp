@@ -17,12 +17,13 @@ class Optimal
 {
     private:
         PermutationGenerator pG;
-        std::string fileIn;
-        void packBins();
+        FileManager fM;
         std::vector<std::vector<double>> bins;
+        int packBins(std::vector<double> items);
     public:
         Optimal(std::string fileIn);
         void findOptimalSolution();
+        void displayOptimalSolution();
 };
 
 #endif /*OPTIMAL_HPP*/

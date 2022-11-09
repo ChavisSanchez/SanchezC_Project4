@@ -15,12 +15,11 @@ Header file for FileManager class
 class FileManager
 {
     private:
+        std::fstream inFile;
         double* items;
-        std::string fileIn;
-        std::ifstream inFile;
         int numOfItems;
     public:
-        FileManager(std::string fileIn);
+        FileManager();
         ~FileManager();
         void getItems();
         double getItem(int index);
