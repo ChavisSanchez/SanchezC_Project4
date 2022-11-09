@@ -21,6 +21,7 @@ class FileManager
         int numOfItems;
     public:
         FileManager(std::string fileIn);
+        ~FileManager();
         void getItems();
         double getItem(int index);
         int getNumOfItems();

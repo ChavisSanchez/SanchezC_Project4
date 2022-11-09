@@ -12,7 +12,13 @@ Class file for FileManager class
 FileManager::FileManager(std::string fileIn)
 {
     this->fileIn = fileIn;
-    this->numOfItems = 0;        
+    this->numOfItems = 0; 
+    getItems();
+}
+
+FileManager::~FileManager()
+{
+    delete(items);
 }
 
 void FileManager::getItems()
@@ -35,7 +41,8 @@ void FileManager::getItems()
             items[i] = item;
         }
     }
-
+    
+    inFile.close();
 }
 
 double FileManager::getItem(int index)

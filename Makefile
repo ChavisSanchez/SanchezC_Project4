@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -g -std=c++17 -Wall # -Werror=return-type -Werror-uninitialized
 
-OBJECTS = main.o filemanager.o binlist.o
+OBJECTS = main.o filemanager.o offline.o permutationgenerator.o
 
 main: $(OBJECTS)
 			$(CXX) $(CXXFLAGS) -o $@ $^

@@ -6,31 +6,33 @@ Project 4
 Main File for project 4
 ******************************************/
 
+#include <vector>
 #include <iostream>
 #include "filemanager.hpp"
-#include "binlist.hpp"
+#include "offline.hpp"
+
+
 int main()
 {
-    BinList list;
+    //FileManager* fm = new FileManager("items.txt");
 
-    list.addBin(0.45);
-    list.addBin(0.435);
-    list.addBin(0.75);
-    list.addBin(0.85);
-    list.addBin(0.25);
+    /*
+    for(int i = 0; i < fm->getNumOfItems(); i++)
+    {
+        std::cout << fm->getItem(i) << std::endl;
+    }
+    */
+    Offline* oF = new Offline("items.txt");
 
-    std::cout << list.getBinCost(0) << std::endl;
-    std::cout << list.getBinCost(1) << std::endl;
-    std::cout << list.getBinCost(2) << std::endl;
-    std::cout << list.getBinCost(3) << std::endl;
-
-    list.addToBin(2, 0.25);
+    std::cout << oF->FirstFit() << std::endl;
     
-    std::cout << list.getBinCost(2) << std::endl;
+    std::cout << oF->BestFit() << std::endl;
 
-    list.removeFromBin(2, 0.25);
+//    oF->displayFirstFit();
+    
+  //  std::cout << oF->BestFit() << std::endl;
 
-    std::cout << list.getBinCost(2) << std::endl;
+//    oF->displayBestFit();
 
     return 0;
 }
