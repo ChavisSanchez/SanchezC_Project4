@@ -110,7 +110,6 @@ int Online::BestFit()
             binsBest.pop_back();
         }
     }
-    
     return binsBest.size();
 }
 
