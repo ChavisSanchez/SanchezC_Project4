@@ -8,56 +8,49 @@ Class file for PermutationGenerator class
 
 #include "permutationgenerator.hpp"
 
-PermutationGenerator::PermutationGenerator()
+PermutationGenerator::PermutationGenerator(std::vector<double> items)
 {
-    
+    this->items = items;
 }
 
-std::vector<double> PermutationGenerator::permutate(std::vector<double> s)
+std::vector<double> PermutationGenerator::permutate()
 {
-    int size = s.size();
+    int size = items.size();
     int m, k, p, q;
 
     m = size - 2;
-    while(s[m] > s[m+1])
+    while(items[m] > items[m+1])
     {
         m = m - 1;
     }
 
     k = size - 1;
-    while(s[m] > s[k])
+    while(items[m] > items[k])
     {
         k = k - 1;
     }
 
-    double temp1 = s[m];
-    s[m] = s[k];
-    s[k] = temp1;
+    swapElements(m, k);
 
     p = m + 1;
     q = size - 1;
     while(p < q)
     {
-        double temp2 = s[p];
-        s[p] = s[q];
-        s[q] = temp2;
+        swapElements(p, q);
         p++;
         q--;
     }
     
-    return s;
+    PermutationGenerator(this->items);
+
+    return items;
 }
 
-std::vector<double> PermutationGenerator::arrayToVector(double items[])
+void PermutationGenerator::swapElements(int x, int y)
 {
-    std::vector<double> s;
-    int size = *(&items + 1) - items;
-    for(int i = 0; i < size; i++)
-    {
-        s[i] = items[i];
-    }
-
-    return s;
+   double temp = this->items[x];
+   this->items[x] = this->items[y];
+   this->items[y] = temp;
 }
 
 std::vector<double> PermutationGenerator::getItems()

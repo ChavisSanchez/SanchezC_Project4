@@ -19,7 +19,7 @@ int main()
     Optimal oP;
 
     std::cout << "   Policy         |   Total Bins Used   " << std::endl;
-    std::cout << "Optimal Solution  |       " << oP.getBinCount() << std::endl;
+    std::cout << "Optimal Solution  |       " << oP.findOptimalSolution() << std::endl;
     std::cout << "Online Alrgorithm |" << std::endl;
     std::cout << "   First Fit      |       " << oN.FirstFit() << std::endl;
     std::cout << "   Next Fit       |       " << oN.NextFit() << std::endl;
@@ -29,7 +29,7 @@ int main()
     std::cout << "   Best Fit       |       " << oF.BestFit() << std::endl;
 
     std::cout << "Optimal Bin Placement: " << std::endl;
-    //oP.displayOptimalSolution();
+    oP.displayOptimalSolution();
     std::cout << "Online Bin Placement: " << std::endl;
     std::cout << "First Fit" << std::endl;
     oN.displayFirstFit();

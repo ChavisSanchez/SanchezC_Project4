@@ -16,16 +16,16 @@ Header file for Optimal class
 class Optimal
 {
     private:
-        PermutationGenerator pG;
+        PermutationGenerator* pG;
         FileManager fM;
         std::vector<std::vector<double>> bins;
         std::vector<std::vector<double>> packBins();
         int binCount;
-        double items[12];
+        std::vector<double> items;
     public:
         Optimal();
-        std::vector<std::vector<double>> findOptimalSolution();
-        void displayOptimalSolution(std::vector<std::vector<double>> bons);
+        int findOptimalSolution();
+        void displayOptimalSolution();
         double getBinWeight(std::vector<double> bin);
         int getBinCount();
         void setBinCount(int binCount);

@@ -17,9 +17,9 @@ class PermutationGenerator
     private:
         std::vector<double> items; 
     public:
-        PermutationGenerator();
-        std::vector<double> permutate(std::vector<double> items);
-        std::vector<double> arrayToVector(double items[]);
+        PermutationGenerator(std::vector<double> items);
+        std::vector<double> permutate();
+        void swapElements(int x, int y);
         std::vector<double> getItems();
         int factorial(int f);
 };

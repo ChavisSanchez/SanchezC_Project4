@@ -48,8 +48,22 @@ int Online::FirstFit()
 
 int Online::NextFit()
 {
-    binsNext = {{0}};
-    return 1;
+    std::vector<double> f{0.0};
+    binsNext.push_back(f);
+    int j = 0;
+
+    for(int i = 0; i < length; i++)
+    {
+        if(getBinWeight(binsNext[j]) + items[i] > 1)
+        {
+            binsNext.push_back(f);
+            j++;
+        }
+        else
+            binsNext[j].push_back(items[i]);
+    }
+
+    return binsNext.size();
 }
 
 int Online::BestFit()

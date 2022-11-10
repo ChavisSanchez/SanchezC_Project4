@@ -16,34 +16,33 @@ Optimal::Optimal()
 
     for(int i = 0; i < length; i++)
     {
-        items[i] = fM.getItem(i);
+        items.push_back(fM.getItem(i));
     }
+
+    this->pG = new PermutationGenerator(items);
 }
 
-std::vector<std::vector<double>> Optimal::findOptimalSolution()
+int Optimal::findOptimalSolution()
 {
-    std::vector<std::vector<double>> optimalPack;
-    int size = 0;
     int minSize = 13;
-    std::vector<double> it = pG.arrayToVector(items);
-    for(int j = 0; j < pG.factorial(12) - 1; j++)
-    {
-        size = 0;
-      //  it = pG.permutate(pG.arrayToVector(items));
-        size = packBins().size();
-        if(size < minSize)
-        {
-            optimalPack = packBins();
-            minSize = size;
-        }
+    std::vector<std::vector<double>> optimalBins;
 
-        it = pG.permutate(it);
+    for(int j = 0; j < pG->factorial(12) - 1; j++)
+    {
+        bins = packBins();
+        if(bins.size() < minSize)
+        {
+            optimalBins = bins;
+            minSize = optimalBins.size();
+        }
+        items = pG->permutate();
     }
 
-    return optimalPack;
+    bins = optimalBins;
+    return minSize;
 }
 
-void Optimal::displayOptimalSolution(std::vector<std::vector<double>> bins)
+void Optimal::displayOptimalSolution()
 {
     for(int i = 0; i < bins.size(); i++)
     {
