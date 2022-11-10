@@ -12,6 +12,8 @@ Optimal::Optimal()
 {
     int length = fM.getNumOfItems();
 
+    this->binCount = 0;
+
     for(int i = 0; i < length; i++)
     {
         items[i] = fM.getItem(i);
@@ -97,4 +99,14 @@ double Optimal::getBinWeight(std::vector<double> bin)
         weight += bin[i];
     }
     return weight;
+}
+
+int Optimal::getBinCount()
+{
+    return this->binCount;
+}
+
+void Optimal::setBinCount(int binCount)
+{
+    this->binCount = binCount;
 }

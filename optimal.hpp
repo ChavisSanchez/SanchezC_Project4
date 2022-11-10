@@ -20,12 +20,15 @@ class Optimal
         FileManager fM;
         std::vector<std::vector<double>> bins;
         std::vector<std::vector<double>> packBins();
+        int binCount;
         double items[12];
     public:
         Optimal();
         std::vector<std::vector<double>> findOptimalSolution();
         void displayOptimalSolution(std::vector<std::vector<double>> bons);
         double getBinWeight(std::vector<double> bin);
+        int getBinCount();
+        void setBinCount(int binCount);
 };
 
 #endif /*OPTIMAL_HPP*/
