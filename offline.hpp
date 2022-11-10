@@ -23,7 +23,7 @@ class Offline
         double items[12];
 
     public:
-        Offline(std::string fileName);
+        Offline();
         ~Offline();
         int FirstFit();
         int BestFit();

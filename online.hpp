@@ -23,7 +23,7 @@ class Online
         int length;
         double items[12];
     public:
-        Online(std::string fileName);
+        Online();
         int FirstFit();
         int NextFit();
         int BestFit();

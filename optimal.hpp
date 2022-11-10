@@ -19,11 +19,13 @@ class Optimal
         PermutationGenerator pG;
         FileManager fM;
         std::vector<std::vector<double>> bins;
-        int packBins(std::vector<double> items);
+        std::vector<std::vector<double>> packBins();
+        double items[12];
     public:
-        Optimal(std::string fileIn);
-        void findOptimalSolution();
-        void displayOptimalSolution();
+        Optimal();
+        std::vector<std::vector<double>> findOptimalSolution();
+        void displayOptimalSolution(std::vector<std::vector<double>> bons);
+        double getBinWeight(std::vector<double> bin);
 };
 
 #endif /*OPTIMAL_HPP*/

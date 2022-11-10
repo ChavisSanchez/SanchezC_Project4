@@ -8,7 +8,7 @@ Class file for online class
 
 #include "online.hpp"
 
-Online::Online(std::string fileName)
+Online::Online()
 {
     this->length = fM2.getNumOfItems();
 
@@ -48,6 +48,7 @@ int Online::FirstFit()
 
 int Online::NextFit()
 {
+    binsNext = {{0}};
     return 1;
 }
 

@@ -8,8 +8,10 @@ Class file for Offline class
 
 #include "offline.hpp"
 
-Offline::Offline(std::string fileName)
+Offline::Offline()
 {
+    //this->items = items;
+    
     this->length = fM.getNumOfItems();
 
     for(int i = 0; i < length; i++)
@@ -34,7 +36,6 @@ int Offline::FirstFit()
         int j;
         for(j = 0; j < binsFirst.size(); j++)
         {
-            std::cout << getBinWeight(binsFirst[j]) + items[i];
             if(getBinWeight(binsFirst[j]) + items[i] <= 1)
             {
                 binsFirst[j].push_back(items[i]);

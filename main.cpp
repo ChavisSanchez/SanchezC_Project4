@@ -13,16 +13,30 @@ Main file
 
 int main()
 {
-    Online* oN = new Online("items.txt");
 
-    oN->FirstFit();
+    Offline oF;
+    oF.FirstFit();
 
-    oN->displayFirstFit();
+    oF.displayFirstFit();
 
-    Offline* oF = new Offline("items.txt");
+    oF.BestFit();
 
-    oF->FirstFit();
+    oF.displayBestFit();
 
-    oF->displayFirstFit();
+    Online oN;
+    
+    oN.FirstFit();
+
+    oN.displayFirstFit();
+
+    oN.BestFit();
+
+    oN.displayBestFit();
+    
+//    oN.NextFit();
+
+  //  oN.displayNextFit();
+
+
     return 0;
 }

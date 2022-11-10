@@ -18,7 +18,7 @@ std::vector<double> PermutationGenerator::permutate(std::vector<double> s)
     int size = s.size();
     int m, k, p, q;
 
-    m = size - 1;
+    m = size - 2;
     while(s[m] > s[m+1])
     {
         m = m - 1;
@@ -41,14 +41,10 @@ std::vector<double> PermutationGenerator::permutate(std::vector<double> s)
         double temp2 = s[p];
         s[p] = s[q];
         s[q] = temp2;
+        p++;
+        q--;
     }
     
-    for(int i = 0; i < s.size(); i++)
-    {
-        std::cout << s[i] << " ";
-    }
-    std::cout << std::endl;
-
     return s;
 }
 
