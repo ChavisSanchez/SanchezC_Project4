@@ -17,8 +17,8 @@ FileManager::FileManager()
 
 FileManager::~FileManager()
 {
-    delete[] items;
-    delete(items);
+//    delete[] items;
+  //  delete(items);
 }
 
 void FileManager::getItems()
@@ -27,7 +27,7 @@ void FileManager::getItems()
     double item = 0;
     inFile >> numOfItems;
     
-    items = new double(numOfItems);
+    //items = new double(numOfItems);
 
     for(int i = 0; i < numOfItems; i++)
     {

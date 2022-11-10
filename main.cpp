@@ -33,9 +33,9 @@ int main()
 
     oN.displayBestFit();
     
-//    oN.NextFit();
+    oN.NextFit();
 
-  //  oN.displayNextFit();
+    oN.displayNextFit();
 
 
     return 0;

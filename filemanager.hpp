@@ -16,7 +16,7 @@ class FileManager
 {
     private:
         std::fstream inFile;
-        double* items;
+        double items[12];
         int numOfItems;
     public:
         FileManager();
